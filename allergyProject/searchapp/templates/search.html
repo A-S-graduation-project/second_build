@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
-  <title>shree</title>
+  <title>aller_view</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -178,24 +178,27 @@
 
      <!-- about  -->
      <div id="about" class="about">
-       <div class="container-fluid" style="padding-left: 255px;">
+       <div class="container-fluid">
          <h3>검색결과 출력 - 검색어 : <b>{{ query }}</b><b> ->제외 성분 #{{ afilter }}</b></h3>
          <div class="row" style="border-bottom:dashed;">
-            {% for product in products %}
+          <div class="container">  
+             {% for product in products %}
              <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
+          
              
-              <div class="card" style="width: 18rem;display: flex; margin:15px;">
-      
-                <a href="../detail/?pk={{product.prdlstReportNo}}"><img class="card-img-top" src="{{product.image}}" style="height:285px;"></a>
-                  <div class="card-body">
-                    <h4 class="card-text">{{product.prdlstNm}}</h4>
-                    <p class="card-text">{{product.prdkind}}</p>
-                  </div>
-              </div>    
+              <div class="item level-1">
+                <div class="overlay" style="text-align: center;">
+                  <p class="openPro2">{{product.prdlstNm}}</p>
+                  <a class="openPro1" href="../detail/?pk={{product.prdlstReportNo}}">열기</a>
+                  <p class="openPro3">{{product.prdkind}}</p>
+                </div>
+                <img class="card-img-top" src="{{product.image}}" style="height:285px;">
+              </div>
                 {% empty %}
                   <h4>결과 없음</h4>
-                {% endfor %}
+            {% endfor %}
           </div>
+        </div>
       </div>
     </div>
     <!-- end abouts -->
