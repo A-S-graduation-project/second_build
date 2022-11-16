@@ -177,19 +177,20 @@
 
 
      <!-- about  -->
-     <div id="about" class="about">
-       <div class="container-fluid">
+     <div style="border-top: 2px solid #efefef;">
+       <!-- <div class="container-fluid"> -->
          <h3>검색결과 출력 - 검색어 : <b>{{ query }}</b><b> ->제외 성분 #{{ afilter }}</b></h3>
-         <div class="row" style="border-bottom:dashed;">
-          <div class="container">  
+         <br>
+         <!-- <div class="row" style="border-bottom:dashed;"> -->
+          <div class="container" role="list">  
              {% for product in products %}
              <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
           
              
-              <div class="item level-1">
+              <div class="item">
                 <div class="overlay" style="text-align: center;">
                   <p class="openPro2">{{product.prdlstNm}}</p>
-                  <a class="openPro1" href="../detail/?pk={{product.prdlstReportNo}}">열기</a>
+                  <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{product.prdlstReportNo}}">열기</a></ul>
                   <p class="openPro3">{{product.prdkind}}</p>
                 </div>
                 <img class="card-img-top" src="{{product.image}}" style="height:285px;">
