@@ -712,10 +712,12 @@
      line-height: 10px;
 }
 
-.container {
-    margin-top: 90px; 
+.grid_container {
+    margin-top: 90px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
+    margin-right: 10%;
+    margin-left: 10%;
+    grid-template-columns: repeat(5, 250px);
     grid-template-rows: repeat(auto-fit, 285px);
     grid-gap: 10px;
     justify-content: center;
@@ -736,16 +738,7 @@
     border-radius: 5px;
   }
   
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-  font-size: 20px;
-  color: $color;
-  font-weight: 900;
-  text-shadow: 3px 0 0 rgba(white, .5); */
+  
 
   .item:hover .overlay {
     display: block;
