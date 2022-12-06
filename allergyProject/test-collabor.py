@@ -56,7 +56,8 @@ def getRecommendation (data, allergy, sim_function=sim_person):
 
     for key in score_dic:
         score_dic[key] = score_dic[key]/sim_dic[key]
-        li.append((score_dic[key],key))
+        if score_dic[key] != 0:
+            li.append((score_dic[key],key))
 
     li.sort()
     li.reverse()
