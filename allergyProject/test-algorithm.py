@@ -15,7 +15,7 @@ product_data.drop('manufacture', axis=1, inplace=True)
 merge_data = pd.merge(product_data, choice_data, on='prdlstNm')
 
 # 데이터 분포 (오류)
-allergy_product_data = merge_data.pivot_table('rating', index='allergy', columns='prdlstNm')
+allergy_product_data = merge_data.pivot_table('rating', index='prdlstNm', columns='allergy')
 # product_allergy_data = merge_data.pivot_table('rating', index='prdlstNm', columns='allergy')
 
 # NaN값 0으로 대체
