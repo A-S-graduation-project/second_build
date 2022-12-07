@@ -10,8 +10,8 @@ class Product(models.Model):
     prdlstNm = models.CharField(max_length=200)
     prdkind = models.CharField(max_length=200)
     rawmtrl = models.TextField()
-    allergy = models.TextField()
-    manufacture = models.CharField(max_length=200)
+    allergy = models.TextField(null=True)
+    manufacture = models.CharField(max_length=200, null=True)
     image = models.ImageField(null=True, blank=True)
     
     def __str__(self):
@@ -24,3 +24,15 @@ class Product(models.Model):
         except:
             url = ''
         return url
+
+
+class UserData(models.Model):
+    rnum = models.IntegerField(primary_key=True)
+    gender = models.TextField(null=True)
+    older = models.IntegerField(null=True)
+    allergy = models.TextField()
+    prdlstNm = models.CharField(max_length=200)
+    rating = models.IntegerField()
+
+    def __str__(self):
+        return self.allergy

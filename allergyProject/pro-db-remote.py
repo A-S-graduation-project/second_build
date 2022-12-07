@@ -43,10 +43,10 @@ def Processed(dict, list):
 serviceKey = 'KRFgFYY3tfo9A3cGfNrr%2Bzaib9lhbXTPnsWS149Apg2Vg%2Frl%2BaI9cVAVMQoMPFzLW23jYOdrysnHWISruWgzTA%3D%3D'
 pageNo = 1
 
-conn = sqlite3.connect('pro-db.sqlite3')
+conn = sqlite3.connect('db.sqlite3')
 cur = conn.cursor()
 
-cur.execute("""CREATE TABLE IF NOT EXISTS Product(
+cur.execute("""CREATE TABLE IF NOT EXISTS searchapp_product(
     prdlstReportNo INTEGER RIMARY KEY NOT NULL,
     prdlstNm TEXT,
     rawmtrl TEXT,
@@ -74,7 +74,7 @@ while True:
 
             procData = Processed(prdlst, field)
 
-            cur.execute("INSERT INTO Product VALUES (?, ?, ?, ?, ?, ?, ?)", procData)
+            cur.execute("INSERT INTO searchapp_product VALUES (?, ?, ?, ?, ?, ?, ?)", procData)
             conn.commit()
 
         pageNo += 1
