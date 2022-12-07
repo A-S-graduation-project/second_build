@@ -19,19 +19,19 @@ def Processed(dict, list):
     # if 'productGb' in list: procData.append(dict['productGb'])
     # else: procData.append('')
 
+    if 'prdkind' in list: procData.append(dict['prdkind'])
+    else: procData.append('')
+
     if 'rawmtrl' in list: procData.append(dict['rawmtrl'])
     else: procData.append('')
 
     if 'allergy' in list: procData.append(dict['allergy'])
     else: procData.append('')
 
-    if 'manufacture' in list: procData.append(dict['manufacture'])
-    else: procData.append('')
-
-    if 'prdkind' in list: procData.append(dict['prdkind'])
-    else: procData.append('')
-
     if 'imgurl1' in list: procData.append(dict['imgurl1'])
+    else: procData.append('')
+
+    if 'manufacture' in list: procData.append(dict['manufacture'])
     else: procData.append('')
 
     # if 'imagurl2' in list: procData.append(dict['imagurl2'])
@@ -48,12 +48,12 @@ cur = conn.cursor()
 
 cur.execute("""CREATE TABLE IF NOT EXISTS searchapp_product(
     prdlstReportNo INTEGER RIMARY KEY NOT NULL,
-    prdlstNm TEXT,
+    prdlstNm varchar(200),
+    prdkind varchar(200),
     rawmtrl TEXT,
     allergy TEXT,
-    prdkind TEXT,
-    manufacture TEXT,
-    image TEXT)""")
+    image varchar(100),
+    manufacture varchar(200))""")
 
 
 while True:
