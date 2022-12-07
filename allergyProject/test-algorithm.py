@@ -2,8 +2,10 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
 # user data, product data 읽기
-choice_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/UserData.csv', encoding='cp949')
-product_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/Product.csv')
+choice_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/Test1.csv', on_bad_lines='skip')
+product_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/Test2.csv', on_bad_lines='skip')
+
+print(product_data)
 
 # product data 전처리
 product_data.drop('rawmtrl', axis=1, inplace=True)
