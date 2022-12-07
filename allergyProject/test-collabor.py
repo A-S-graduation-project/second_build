@@ -1,6 +1,8 @@
 import pandas as pd
 from math import sqrt
-
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 def sim_person(data, allergy1, allergy2):
     sumX=0
@@ -100,3 +102,34 @@ print(top_match(product_allergy_data, allergy1, 10))
 
 # 결과 나옴
 print(getRecommendation(product_allergy_data, allergy1))
+
+# 음식 csv 파일 가져오기
+food_data = pd.read_csv('C:/dataset/Product.csv') # csv 파일 위치로 바꾸기
+fmaterial=[]   # 재료 넣을 list
+fname=[]       # 음식 이름 넣을 list
+
+# 전처리
+food_data.drop('allergy',axis=1, inplace=True)
+food_data.drop('prdkind',axis=1, inplace=True)
+food_data.drop('manufacture',axis=1, inplace=True)
+
+# food_data의 식품 이름과 재료들을 리스트에 넣기
+for row_index, row in food_data.iterrows():
+    fname.append(row.loc["prdlstNm"])
+    fmaterial.append( row.loc["rawmtrl"])
+
+# count vector로 만들어서 cosine similar 만들기
+vectorizer = CountVectorizer()
+food_vector = vectorizer.fit_transform(fmaterial)
+# print(food_vector)                 # (n,m) n은 재료 번호, m은 몇번째 음식에서 나왔는지
+# print(food_vector.toarray())       # (vector화 된 행렬)
+food_simi_cate = cosine_similarity(food_vector, food_vector)
+print(food_simi_cate)
+
+# TF vector로 만들어서 cosine similar 만들기
+TFvectorizer = TfidfVectorizer()
+food_tfvector = TFvectorizer.fit_transform(fmaterial)
+# print(food_vector)                # (n,m) n은 재료 번호, m은 몇번째 음식에서 나왔는지
+# print(food_vector.toarray())      # (vector화 된 행렬)
+food_tfsimi_cate = cosine_similarity(food_tfvector, food_tfvector)
+print(food_tfsimi_cate)
