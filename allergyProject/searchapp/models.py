@@ -8,10 +8,10 @@ from django.utils import timezone
 class Product(models.Model):
     prdlstReportNo = models.BigIntegerField(primary_key=True)
     prdlstNm = models.CharField(max_length=200)
-    prdkind = models.CharField(max_length=200)
     rawmtrl = models.TextField()
     allergy = models.TextField(null=True)
     manufacture = models.CharField(max_length=200, null=True)
+    prdkind = models.CharField(max_length=200)
     image = models.ImageField(null=True, blank=True)
     
     def __str__(self):
