@@ -200,22 +200,37 @@
       </div>
     </div>
   </div>
-</div>
+  <div class="grid_container" role="list">  
+    {% for collarbor in collarbors %}
+    <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
+     <div class="item">
+       <div class="overlay" style="text-align: center;">
+         <p class="openPro2">{{collarbor.prdlstNm}}</p>
+         <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{collarbor.prdlstReportNo}}">열기</a></ul>
+         <p class="openPro3">{{collarbor.prdkind}}</p>
+       </div>
+       <img class="card-img-top" src="{{collarbor.image}}" style="height:285px; width:250px;">
+  </div>
+       {% empty %}
+         <h4>결과 없음</h4>
+   {% endfor %}
+  </div>
 
-<div class="grid_container" role="list">  
-  {% for collarbor in collarbors %}
-  <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
-   <div class="item">
-     <div class="overlay" style="text-align: center;">
-       <p class="openPro2">{{collarbor.prdlstNm}}</p>
-       <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{collarbor.prdlstReportNo}}">열기</a></ul>
-       <p class="openPro3">{{collarbor.prdkind}}</p>
-     </div>
-     <img class="card-img-top" src="{{collarbor.image}}" style="height:285px; width:250px;">
-</div>
-     {% empty %}
-       <h4>결과 없음</h4>
- {% endfor %}
+  <div class="grid_container" role="list">  
+    {% for similarity in similarities %}
+    <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
+     <div class="item">
+       <div class="overlay" style="text-align: center;">
+         <p class="openPro2">{{similarity.prdlstNm}}</p>
+         <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{similarity.prdlstReportNo}}">열기</a></ul>
+         <p class="openPro3">{{similarity.prdkind}}</p>
+       </div>
+       <img class="card-img-top" src="{{similarity.image}}" style="height:285px; width:250px;">
+  </div>
+       {% empty %}
+         <h4>결과 없음</h4>
+   {% endfor %}
+  </div>
 </div>
 
 

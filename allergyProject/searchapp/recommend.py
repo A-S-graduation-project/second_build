@@ -176,6 +176,7 @@ fmaterial=[]   # 재료 넣을 list
 fname=[]       # 음식 이름 넣을 list
 
 # 전처리
+food_data.fillna('', inplace=True)
 food_data.drop('allergy',axis=1, inplace=True)
 food_data.drop('prdkind',axis=1, inplace=True)
 food_data.drop('manufacture',axis=1, inplace=True)

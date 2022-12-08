@@ -64,15 +64,32 @@ def Detail(request):
         user.save()
 
     collarbors = []
+    similarities = []
 
     for i in range(len(re_li)):
         if i == 5:
             break
-        query = re_li[i][1]
+        colquery = re_li[i][1]
         collarbor = Product.objects.all()
         collarbor = collarbor.get(
-            Q(prdlstReportNo__exact=query)
+            Q(prdlstReportNo__exact=colquery)
         )
         collarbors.append(collarbor)
-        
-    return render(request, 'detail.html', {'pk':pk, 'detail':detail, 'collarbors':collarbors})
+
+    if ('pk' in request.GET):
+        pk = request.GET.get('pk')
+        id = fname.index(pk)
+        for j in range(len(food_simi_cate[id])):
+            if food_simi_cate[id][j] >= 0.7 and id != j:
+                simquery = fname[j]
+                try:
+                    int(simquery)
+                except ValueError:
+                    continue
+                similarity = Product.objects.all()
+                similarity = similarity.get(
+                    Q(prdlstReportNo__exact = simquery)
+                )
+                similarities.append(similarity)
+
+    return render(request, 'detail.html', {'pk':pk, 'detail':detail, 'collarbors':collarbors, 'similarities':similarities})
