@@ -191,4 +191,4 @@ food_vector = vectorizer.fit_transform(fmaterial)
 # print(food_vector)                 # (n,m) n은 재료 번호, m은 몇번째 음식에서 나왔는지
 # print(food_vector.toarray())       # (vector화 된 행렬)
 food_simi_cate = cosine_similarity(food_vector, food_vector)
-print(food_simi_cate)
+# print(food_simi_cate)

@@ -65,8 +65,10 @@ def Detail(request):
 
     collarbors = []
 
-    for i in re_li:
-        query = i[1]
+    for i in range(len(re_li)):
+        if i == 5:
+            break
+        query = re_li[i][1]
         collarbor = Product.objects.all()
         collarbor = collarbor.get(
             Q(prdlstReportNo__exact=query)
