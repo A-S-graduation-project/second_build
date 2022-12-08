@@ -34,7 +34,7 @@ def pexport(c, li):
     for row in c.execute('SELECT * FROM searchapp_product'):
         for m in range(7):
             if m != 6:
-                if m == 2:
+                if m == 3:
                     li = li + '"' + str(row[m]) + '"' + ","
                 else:
                     li = li + str(row[m]) + ","
@@ -53,7 +53,7 @@ conn = sqlite3.connect('C:/Users/user/Project/second_build/allergyProject/db.sql
 c = conn.cursor()
 
 user_te = "rnum,gender,older,allergy,prdlstNm,rating,prdlstReportNo"
-pro_te = "prdlstReportNo,prdlstNm,rawmtrl,allergy,prdkind,manufacture,image"
+pro_te = "prdlstReportNo,prdlstNm,prdkind,rawmtrl,allergy,manufacture,image"
 
 uexport(c, user_te)
 
@@ -166,12 +166,12 @@ allergy1 = '난류'
 # 결과 나옴
 re_li = getRecommendation(product_allergy_data, allergy1)
 
-# print(re_li)
+print(re_li)
 
 ###############################################################################################################
 
 # 음식 csv 파일 가져오기
-food_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/Product.csv') # csv 파일 위치로 바꾸기
+food_data = pd.read_csv('C:/Users/user/Project/second_build/allergyProject/Product.csv', on_bad_lines='skip') # csv 파일 위치로 바꾸기
 fmaterial=[]   # 재료 넣을 list
 fname=[]       # 음식 이름 넣을 list
 
@@ -191,4 +191,4 @@ food_vector = vectorizer.fit_transform(fmaterial)
 # print(food_vector)                 # (n,m) n은 재료 번호, m은 몇번째 음식에서 나왔는지
 # print(food_vector.toarray())       # (vector화 된 행렬)
 food_simi_cate = cosine_similarity(food_vector, food_vector)
-# print(food_simi_cate)
+print(food_simi_cate)
