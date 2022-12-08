@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Product
+from .models import UserData
 from django.db.models import Q
 from collarbor import *
 
@@ -48,14 +49,28 @@ def Detail(request):
             Q(prdlstReportNo__exact=pk)
         )
 
-        collarbors = []
+    try:
+        user=UserData.objects.all().get(
+            Q(prdlstReportNo__exact=pk)
+        )
+    except UserData.DoesNotExist:
+        user=UserData()
+        user.gender='남성'
+        user.older=25
+        user.allergy='난류'
+        user.prdlstNm=detail.prdlstNm
+        user.rating=3
+        user.prdlstReportNo=detail.prdlstReportNo
+        user.save()
 
-        for i in re_li:
-            query = i[1]
-            collarbor = Product.objects.all()
-            collarbor = collarbor.get(
-                Q(prdlstReportNo__exact=query)
-            )
-            collarbors.append(collarbor)
-            
-        return render(request, 'detail.html', {'pk':pk, 'detail':detail, 'collarbors':collarbors})
+    collarbors = []
+
+    for i in re_li:
+        query = i[1]
+        collarbor = Product.objects.all()
+        collarbor = collarbor.get(
+            Q(prdlstReportNo__exact=query)
+        )
+        collarbors.append(collarbor)
+        
+    return render(request, 'detail.html', {'pk':pk, 'detail':detail, 'collarbors':collarbors})
