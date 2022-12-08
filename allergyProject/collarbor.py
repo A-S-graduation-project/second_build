@@ -7,9 +7,9 @@ def uexport(c, li):
     li += "\n"
 
     for row in c.execute('SELECT * FROM searchapp_userdata'):
-        for m in range(6):
-            if m != 5:
-                if m == 2:
+        for m in range(7):
+            if m != 6:
+                if m == 3:
                     li = li + '"' + str(row[m]) + '"' + ","
                 else:
                     li = li + str(row[m]) + ","
@@ -49,7 +49,7 @@ def pexport(c, li):
 conn = sqlite3.connect('C:/Users/user/Project/second_build/allergyProject/db.sqlite3')
 c = conn.cursor()
 
-user_te = "rnum,gender,allergy,prdlstNm,rating,older"
+user_te = "rnum,gender,older,allergy,prdlstNm,rating,prdlstReportNo"
 pro_te = "prdlstReportNo,prdlstNm,rawmtrl,allergy,prdkind,manufacture,image"
 
 uexport(c, user_te)
@@ -141,7 +141,7 @@ product_data.drop('manufacture', axis=1, inplace=True)
 choice_data.drop('rnum', axis=1, inplace=True)
 
 # 병합
-merge_data = pd.merge(product_data, choice_data, on='prdlstNm')
+merge_data = pd.concat([product_data, choice_data], join='outer')
 
 # 데이터 분포
 product_allergy_data = merge_data.pivot_table('rating', index='prdlstReportNo', columns='allergy')
@@ -151,8 +151,8 @@ product_allergy_data.fillna(0, inplace=True)
 
 # print(product_allergy_data)
 
-allergy1 = '고등어, 땅콩, 게, 복숭아, 호두, 메밀'
-# allergy2 = '난류'
+allergy1 = '난류'
+# allergy2 = '고등어, 땅콩, 게, 복숭아, 호두, 메밀'
 
 # 결과 나옴
 # print(sim_person(product_allergy_data, allergy1, allergy2))
