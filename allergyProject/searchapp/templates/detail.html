@@ -30,6 +30,13 @@
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+  <style>
+    label {
+      float:left
+    }
+  </style>>
+
 </head>
 <!-- body -->
 
@@ -192,14 +199,6 @@
           <h2>{{detail.prdlstNm}}</h2>
           <p>세부 재료 : {{detail.rawmtrl}}</p>
           <p>알러지 성분 : {{detail.allergy}}</p>
-          <p>collarbor :
-            {% for collarbor in collarbors %}
-              {{collarbor.prdlstNm}}
-              <figure><img src="{{collarbor.image}}" alt="#" style="width:90%; height:90%;" /></figure>
-              {% empty %}
-              <h4>결과 없음</h4>
-              {% endfor %}
-          </p>
           <div class="about-box_img">
             <!-- manufacture 제거 -->
             <figure><a href="https://www.coupang.com/np/search?component=&q={{detail.prdlstNm}}&channel=user">판매 사이트</a></figure>
@@ -207,9 +206,26 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
+
+<div class="grid_container" role="list">  
+  {% for collarbor in collarbors %}
+  <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
+   <div class="item">
+     <div class="overlay" style="text-align: center;">
+       <p class="openPro2">{{collarbor.prdlstNm}}</p>
+       <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{collarbor.prdlstReportNo}}">열기</a></ul>
+       <p class="openPro3">{{collarbor.prdkind}}</p>
+     </div>
+     <img class="card-img-top" src="{{collarbor.image}}" style="height:285px; width:250px;">
+   </div>
+     {% empty %}
+       <h4>결과 없음</h4>
+ {% endfor %}
+</div>
+
+
 <!-- end abouts -->
 
 
