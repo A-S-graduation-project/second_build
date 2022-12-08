@@ -1,6 +1,7 @@
 import sqlite3, os
 import pandas as pd
 from math import sqrt
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 def uexport(c, li):
@@ -164,3 +165,10 @@ allergy1 = '난류'
 re_li = getRecommendation(product_allergy_data, allergy1)
 
 # print(re_li)
+
+# 코사인 유사도 사용
+allergy_based_collabor = cosine_similarity(product_allergy_data)
+
+# allergy based 유사도 생성
+allergy_based_collabor = pd.DataFrame(data = allergy_based_collabor, index = product_allergy_data.index, columns = product_allergy_data.index)
+print(allergy_based_collabor.head())
