@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Product
 from django.db.models import Q
+from collarbor import *
 
 # filter 함수의 Q함수: OR조건으로 데이터를 조회하기 위해 사용하는 함수
 # objects.filter() 는 특정 조건에 해당하면 객체 출력 .get('kw') 은 kw만 반환
@@ -46,4 +47,15 @@ def Detail(request):
         detail = detail.get(
             Q(prdlstReportNo__exact=pk)
         )
-        return render(request, 'detail.html', {'pk':pk, 'detail':detail})
+
+        collarbors = []
+
+        for i in re_li:
+            query = i[1]
+            collarbor = Product.objects.all()
+            collarbor = collarbor.get(
+                Q(prdlstReportNo__exact=query)
+            )
+            collarbors.append(collarbor)
+            
+        return render(request, 'detail.html', {'pk':pk, 'detail':detail, 'collarbors':collarbors})
