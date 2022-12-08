@@ -27,10 +27,11 @@ class Product(models.Model):
 
 
 class UserData(models.Model):
-    rnum = models.IntegerField(primary_key=True)
+    rnum = models.AutoField(primary_key=True)
     gender = models.TextField(null=True)
     older = models.IntegerField(null=True)
     allergy = models.TextField()
+    prdlstReportNo = models.BigIntegerField()
     prdlstNm = models.CharField(max_length=200)
     rating = models.IntegerField()
 
