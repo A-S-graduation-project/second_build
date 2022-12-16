@@ -155,7 +155,7 @@ product_allergy_data.fillna(0, inplace=True)
 # print(product_allergy_data)
 
 allergy1 = '난류'
-# allergy2 = '고등어, 땅콩, 게, 복숭아, 호두, 메밀'
+allergy2 = '고등어, 땅콩, 게, 복숭아, 호두, 메밀'
 
 # 결과 나옴
 # print(sim_person(product_allergy_data, allergy1, allergy2))
@@ -166,7 +166,8 @@ allergy1 = '난류'
 # 결과 나옴
 re_li = getRecommendation(product_allergy_data, allergy1)
 
-print(re_li)
+print(re_li[:5])
+print("\n")
 
 ###############################################################################################################
 
@@ -192,4 +193,6 @@ food_vector = vectorizer.fit_transform(fmaterial)
 # print(food_vector)                 # (n,m) n은 재료 번호, m은 몇번째 음식에서 나왔는지
 # print(food_vector.toarray())       # (vector화 된 행렬)
 food_simi_cate = cosine_similarity(food_vector, food_vector)
+
 print(food_simi_cate)
+print("\n")
