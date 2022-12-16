@@ -10,28 +10,28 @@ def Processed(dict, list):
     # if 'rnum' in list: procData.append(dict['rnum'])
     # else: procData.append('')
 
-    if 'prdlstReportNo' in list: procData.append(dict['prdlstReportNo'])
+    if 'prdlstReportNo' in list: procData.append(dict['prdlstReportNo'].replace("\n", " "))
     else: procData.append('')
 
-    if 'prdlstNm' in list: procData.append(dict['prdlstNm'])
+    if 'prdlstNm' in list: procData.append(dict['prdlstNm'].replace("\n", " "))
     else: procData.append('')
 
     # if 'productGb' in list: procData.append(dict['productGb'])
     # else: procData.append('')
 
-    if 'prdkind' in list: procData.append(dict['prdkind'])
+    if 'prdkind' in list: procData.append(dict['prdkind'].replace("\n", " "))
     else: procData.append('')
 
-    if 'rawmtrl' in list: procData.append(dict['rawmtrl'])
+    if 'rawmtrl' in list: procData.append(dict['rawmtrl'].replace("\n", ","))
     else: procData.append('')
 
-    if 'allergy' in list: procData.append(dict['allergy'])
+    if 'allergy' in list: procData.append(dict['allergy'].replace("\n", ","))
     else: procData.append('')
 
     if 'imgurl1' in list: procData.append(dict['imgurl1'])
     else: procData.append('')
 
-    if 'manufacture' in list: procData.append(dict['manufacture'])
+    if 'manufacture' in list: procData.append(dict['manufacture'].replace("\n", " "))
     else: procData.append('')
 
     # if 'imagurl2' in list: procData.append(dict['imagurl2'])
