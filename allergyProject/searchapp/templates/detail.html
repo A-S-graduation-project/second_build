@@ -1,333 +1,80 @@
-{% load static %}
-
+<!-- {% load static %} -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- basic -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- mobile metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- site metas -->
-  <title>aller_view</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <!-- fevicon -->
-  <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <!-- style css -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <!-- Responsive-->
-  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">  
-  <!-- Scrollbar Custom CSS -->
-  <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
-  <!-- Tweaks for older IEs-->
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-</head>
-<!-- body -->
-
-<body class="main-layout">
-  <!-- loader  -->
-  <div class="loader_bg">
-    <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="#" /></div>
-  </div>
-  <!-- end loader -->
-  <!-- header -->
-  <header>
-    <!-- header inner -->
-    <div class="header-top">
-      <div class="header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xl-2 col-lg-4 col-md-4 col-sm-3 col logo_section">
-              <div class="full">
-                <div class="center-desk">
-                  <div class="logo">
-                    <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
-                  </div>
-                </div>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Online Food Shopping Mall</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="food.jpg"><h1>Allergen</h1></a>
+        </div>
+        <div class="search">
+          <form action="{% url 'search' %}" method="get">
+            <div class="rangedropdown">
+              <button class="dropbtn">검색범위</button>
+              <div class="dropdown-content">
+                <a href="#" class="search-scope-btn" data-search-scope="all">전체</a>
+                <a href="#" class="search-scope-btn" data-search-scope="board">게시판</a>
+                <a href="#" class="search-scope-btn" data-search-scope="food">식품</a>
               </div>
             </div>
-            <!-- <div class="col-xl-10 col-lg-8 col-md-8 col-sm-9">          -->
-                <form class="Vegetable" action="{% url 'searchapp:searchResult' %}" method="get", style="margin-left: 5%;">
-                  <input class="Vegetable_fom" placeholder="원하는 상품을 검색해보세요!" type="text" name="kw">
-                  <button class="Search_btn" type="submit">검색</button>
-                  
-                  
-              </form> 
-              <div class="menu-area">
-                <div class="limit-box">
-                  <nav class="main-menu ">
-                    <ul class="menu-area-main">
-                      <li class="active"> <a href="{% url 'home' %}">Home</a> </li>
-                      <li> <a href="{% url 'board' %}">Board</a> </li>
-                      <li> <a href="{% url 'about' %}">About</a> </li>
-                      <li> <a href="{% static '#contact' %}">Login</a> </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div> 
-            <!-- </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-     <!-- end header inner -->
-     
-     <br>
-     <br>
-
-     <!-- <div class="form-check" style="display:flex; flex-wrap:wrap; background-color: rgb(214, 239, 255); width: 60%; box-shadow: #b0b0b0 0px 0px 9px 0px; height: 80px;"> -->
-      <!-- <div> -->
-      <!-- <div style="margin-right:10px;">알레르기</div> -->
-      <!-- 아래의 코드를 반복하면 필터목록 추가 -->
-      <!-- <input type="checkbox" name="afilter" value="닭고기">
-      <label class="form-check-label" for="flexCheckDefault">
-        닭고기
-      </label>
-      <input type="checkbox" name="afilter" value="소고기">
-      <label class="form-check-label" for="flexCheckDefault">
-        소고기
-      </label>
-      <input type="checkbox" name="afilter" value="돼지고기">
-      <label class="form-check-label" for="flexCheckDefault">
-        돼지고기
-      </label>
-      <input type="checkbox" name="afilter" value="메밀">
-      <label class="form-check-label" for="flexCheckDefault">
-        메밀
-      </label>
-      <input type="checkbox" name="afilter" value="밀">
-      <label class="form-check-label" for="flexCheckDefault">
-        밀
-      </label>
-      <input type="checkbox" name="afilter" value="아몬드">
-      <label class="form-check-label" for="flexCheckDefault">
-        아몬드
-      </label>
-      <input type="checkbox" name="afilter" value="대두">
-      <label class="form-check-label" for="flexCheckDefault">
-        대두
-      </label>
-      <input type="checkbox" name="afilter" value="땅콩">
-      <label class="form-check-label" for="flexCheckDefault">
-        땅콩
-      </label>
-      <input type="checkbox" name="afilter" value="호두">
-      <label class="form-check-label" for="flexCheckDefault">
-        호두
-      </label>
-      <input type="checkbox" name="afilter" value="잣">
-      <label class="form-check-label" for="flexCheckDefault">
-        잣
-      </label>
-      <input type="checkbox" name="afilter" value="우유">
-      <label class="form-check-label" for="flexCheckDefault">
-        우유
-      </label>
-      <input type="checkbox" name="afilter" value="난류">
-      <label class="form-check-label" for="flexCheckDefault">
-        난류
-      </label>
-      <input type="checkbox" name="afilter" value="오징어">
-      <label class="form-check-label" for="flexCheckDefault">
-        오징어
-      </label>
-      <input type="checkbox" name="afilter" value="고등어">
-      <label class="form-check-label" for="flexCheckDefault">
-        고등어
-      </label>
-      <input type="checkbox" name="afilter" value="새우">
-      <label id="formcheck" class="form-check-label" for="flexCheckDefault">
-        새우
-      </label>
-      <input type="checkbox" name="afilter" value="게">
-      <label class="form-check-label" for="flexCheckDefault">
-        게
-      </label>
-      <input type="checkbox" name="afilter" value="조개류">
-      <label class="form-check-label" for="flexCheckDefault">
-        조개류
-      </label>
-      <input type="checkbox" name="afilter" value="복숭아">
-      <label class="form-check-label" for="flexCheckDefault">
-        복숭아
-      </label>
-      <input type="checkbox" name="afilter" value="토마토">
-      <label class="form-check-label" for="flexCheckDefault">
-        토마토
-      </label>
-      <input type="checkbox" name="afilter" value="아산화황">
-      <label class="form-check-label" for="flexCheckDefault">
-        아산화황
-      </label>
-    </div> -->
-<!-- about  -->
-<div id="about" class="about">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
-        <div class="about-box_img">
-          <figure><img src="{{detail.image}}" alt="#" style="width:90%; height:90%;" /></figure>
-        </div>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-        <div class="about-box">
-          <h2>{{detail.prdlstNm}}</h2>
-          <p>세부 재료 : {{detail.rawmtrl}}</p>
-          <p>알러지 성분 : {{detail.allergy}}</p>
-          <div class="about-box_img">
-            <!-- manufacture 제거 -->
-            <figure><a href="https://www.coupang.com/np/search?component=&q={{detail.prdlstNm}}&channel=user">판매 사이트</a></figure>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="about-box" style="float: left; margin-left: 5%; max-width: 180px;">
-    <h2>취향 상품</h2>
-  </div>
-    <div class="collarbor">
-      <div class="grid_container" role="list">  
-        
-      {% for collarbor in collarbors %}
-      <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
-        <div class="item" style="float: left;">
-          <div class="overlay" style="text-align: center;">
-            <p class="openPro2">{{collarbor.prdlstNm}}</p>
-            <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{collarbor.prdlstReportNo}}">열기</a></ul>
-            <p class="openPro3">{{collarbor.prdkind}}</p>
-          </div>
-          <img class="card-img-top" src="{{collarbor.image}}" style="height:285px; width:250px;">
-        </div>
-        {% empty %}
-          <h4>결과 없음</h4>
-    {% endfor %}
-      </div>
-    </div>
-    <div class="about-box" style="float: left; margin-left: 5%; max-width: 180px;">
-      <h2>유사 상품</h2>
-    </div>
-  <div class="grid_container" role="list">  
-    {% for similarity in similarities %}
-    <!-- 부트스트랩 카드 사용 https://getbootstrap.com/docs/4.3/components/card/ -->
-     <div class="item">
-       <div class="overlay" style="text-align: center;">
-         <p class="openPro2">{{similarity.prdlstNm}}</p>
-         <ul class="openPro1"><a style="color:#ffffff"  href="../detail/?pk={{similarity.prdlstReportNo}}">열기</a></ul>
-         <p class="openPro3">{{similarity.prdkind}}</p>
-       </div>
-       <img class="card-img-top" src="{{similarity.image}}" style="height:285px; width:250px;">
-  </div>
-       {% empty %}
-         <h4>결과 없음</h4>
-   {% endfor %}
-  </div>
-</div>
-
-
-<!-- end abouts -->
-
-
-    <!--  footer -->
-    <footr>
-      <div class="footer ">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
-              <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
-                  <div class="address">
-                    <h3>Address </h3>
-                    <ul class="loca">
-                      <li>
-                        <a href="#"></a>충청북도 청주시 서원구 충대로 1
-                        <br>전자정보대학  </li>
-                        <li>
-                          <a href="#"></a>(+82 9***7***) </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="address">
-                          <h3>Social Link</h3>
-                          <ul class="Menu_footer">
-                            <li class="active"> <a href="#">Twitter</a> </li>
-                            <li><a href="#">Facebook</a> </li>
-                            <li><a href="#">Instagram</a> </li>
-                          </ul>
-                        </div>
-                      </div>
-                     
-
-                      <div class="col-lg-4 col-md-6 col-sm-6 ">
-                        <div class="address">
-                          <h3>공지사항</h3>
-                           <form class="news">
-                           <input class="newslatter" placeholder="Enter your email" type="text" name=" Enter your email">
-                            <button class="submit">click</button>
-                            </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="copyright">
-                <div class="container">
-                </div>
+            <input type="text" placeholder="원하는 상품을 검색해보세요">
+            <button type="submit">검색</button>
+            <div class="dropdown">
+              <button class="dropbtn">알레르기</button>
+              <div class="dropdown-content">
+                <a href="#" class="allergen-btn" data-allergen="난류">난류</a>
+                <a href="#" class="allergen-btn" data-allergen="우유">우유</a>
+                <a href="#" class="allergen-btn" data-allergen="땅콩">땅콩</a>
+                <a href="#" class="allergen-btn" data-allergen="생선">생선</a>
               </div>
             </div>
-          </footr>
-          <!-- end footer -->
-           <!-- Javascript files-->
-           <script src="{% static 'js/jquery.min.js' %}"></script>
-           <script src="{% static 'js/popper.min.js' %}"></script>
-           <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-           <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
-           <script src="{% static 'js/plugin.js' %}"></script>
-           <!-- sidebar -->
-           <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-           <script src="{% static 'js/custom.js' %}"></script>
-           <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
- 
- 
-           <script>
-            // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-            // Australia.
-            function initMap() {
-              var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 11,
-                center: {
-                  lat: 40.645037,
-                  lng: -73.880224
-                },
-              });
+          </form>
+          <div id="selected-allergens"></div>
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="{% url 'board' %}">Board</a></li>
+            <li><a href="{% static 'food.jpgcontact' %}">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+        <div class="food-details">
+            <!-- <img src="{% static 'food-image.jpg' %}" alt="Food Image"> -->
+            <img src="food2.jpg" alt="Food Image">
+            <div class="food-info">
+            <h2>Food Name</h2>
+            <p>Description information about the food.</p>
+            <form action="https://search.shopping.naver.com/search/all" method="GET">
+                <input type="hidden" name="query" value="{{ food.name }}">
+                <button type="submit"> 구매하기 </button>
+            </form>
+            </div>
+        </div>
+    </main>
+    <div id="recommend"></div>
+    <!-- add to django -->
+        {% block content %}
+        <h1>Search results for "{{ query }}"</h1>
 
-              var image = 'images/maps-and-flags.png';
-              var beachMarker = new google.maps.Marker({
-                position: {
-                  lat: 40.645037,
-                  lng: -73.880224
-                },
-                map: map,
-                icon: image
-              });
-            }
-          </script>
-          <!-- google map js -->
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
-          <!-- end google map js -->
-  </header>
-</body>
-
+        <div class="picture-grid">
+          {% for product in products %}
+            <div class="product">
+              <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
+              <p>{{ product.prdlstNm }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% endblock %}
+    <footer>
+      <div class="color-blocks"></div>
+    </footer>
+  </body>
+  <script src="app.js"></script>
 </html>
