@@ -1,68 +1,17 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Online Food Shopping Mall</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">
-          <a href="food.jpg"><h1>Allergen</h1></a>
-        </div>
-        <div class="search">
-          <form action="{% url 'search' %}" method="get">
-            <div class="rangedropdown">
-              <button class="dropbtn">검색범위</button>
-              <div class="dropdown-content">
-                <a href="#" class="search-scope-btn" data-search-scope="all">전체</a>
-                <a href="#" class="search-scope-btn" data-search-scope="board">게시판</a>
-                <a href="#" class="search-scope-btn" data-search-scope="food">식품</a>
-              </div>
-            </div>
-            <input type="text" placeholder="원하는 상품을 검색해보세요">
-            <button type="submit">검색</button>
-            <div class="dropdown">
-              <button class="dropbtn">알레르기</button>
-              <div class="dropdown-content">
-                <a href="#" class="allergen-btn" data-allergen="난류">난류</a>
-                <a href="#" class="allergen-btn" data-allergen="우유">우유</a>
-                <a href="#" class="allergen-btn" data-allergen="땅콩">땅콩</a>
-                <a href="#" class="allergen-btn" data-allergen="생선">생선</a>
-              </div>
-            </div>
-          </form>
-          <div id="selected-allergens"></div>
-        </div>
-        <div class="menu">
-          <ul>
-            <li><a href="{% url 'board' %}">Board</a></li>
-            <li><a href="{% static 'food.jpgcontact' %}">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-      
-    </header>
+  {% block content %}
     <main>
-      <!-- add to django -->
-        {% block content %}
-        <h1>Search results for "{{ query }}"</h1>
+      <h1>Search results for "{{ query }}"</h1>
 
-        <div class="picture-grid">
-          {% for product in products %}
-            <div class="product">
-              <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
-              <p>{{ product.prdlstNm }}</p>
-            </div>
-          {% endfor %}
-        </div>
-      {% endblock %}
+      <div class="picture-grid">
+        {% for product in products %}
+          <div class="product">
+            <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
+            <p>{{ product.prdlstNm }}</p>
+          </div>
+        {% endfor %}
+      </div>
     </main>
-    <footer>
-      <div class="color-blocks"></div>
-    </footer>
-  </body>
-  <script src="app.js"></script>
-</html>
+  {% endblock %}
+
