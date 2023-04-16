@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-  {% block content %}
-    <main>
-      <h1>Search results for "{{ query }}"</h1>
+{% block content %}
+  <main>
+    <h1>Search results for "{{ query }}"</h1>
 
-      <div class="picture-grid">
-        {% for product in products %}
-          <div class="product">
-            <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
-            <p>{{ product.prdlstNm }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </main>
-  {% endblock %}
+    <div class="picture-grid">
+      {% for product in products %}
+        <div class="product">
+          <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
+          <p>{{ product.prdlstNm }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}
 
