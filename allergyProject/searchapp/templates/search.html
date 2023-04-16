@@ -7,7 +7,7 @@
     <div class="picture-grid">
       {% for product in products %}
         <div class="product">
-          <a herf="../detail/?pk={{product.prdlstReportNo}}">
+          <a herf="{% url 'searchapp:Detail' %}?kw={{ product.prdlstReportNo }}">
             <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
             <p>{{ product.prdlstNm }}</p>
           </a>
