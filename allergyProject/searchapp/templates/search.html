@@ -7,9 +7,13 @@
     <div class="picture-grid">
       {% for product in products %}
         <div class="product">
-          <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
-          <p>{{ product.prdlstNm }}</p>
+          <a herf="../detail/?pk={{product.prdlstReportNo}}">
+            <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
+            <p>{{ product.prdlstNm }}</p>
+          </a>
         </div>
+        {% empty %}
+          <h4>결과 없음</h4>
       {% endfor %}
     </div>
   </main>
