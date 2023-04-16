@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<h1>Search results for "{{ detail.prdlstNm }}"</h1>
 <main>
   <!-- fix -->
     <div class="food-details">
@@ -17,14 +18,29 @@
     </div>
 </main>
 <div id="recommend"></div>
-<h1>Search results for "{{ query }}"</h1>
+<div class="picture-grid">
+  {% for collarbor in collarbors %}
+    <div class="product">
+      <a href="{% url 'searchapp:Detail' %}?pk={{ collarbor.prdlstReportNo }}">
+        <img src="{{ collarbor.image }}" alt="{{ collarbor.prdlstNm }}">
+        <p>{{ collarbor.prdlstNm }}</p>
+      </a>
+    </div>
+    {% empty %}
+      <h4>결과 없음</h4>
+  {% endfor %}
+</div>
 
 <div class="picture-grid">
-  {% for product in products %}
+  {% for similarity in similarities %}
     <div class="product">
-      <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
-      <p>{{ product.prdlstNm }}</p>
+      <a href="{% url 'searchapp:Detail' %}?pk={{ similarity.prdlstReportNo }}">
+        <img src="{{ similarity.image }}" alt="{{ similarity.prdlstNm }}">
+        <p>{{ similarity.prdlstNm }}</p>
+      </a>
     </div>
+    {% empty %}
+      <h4>결과 없음</h4>
   {% endfor %}
 </div>
 {% endblock %}
