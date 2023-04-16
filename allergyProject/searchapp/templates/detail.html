@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,12 +45,14 @@
       </nav>
     </header>
     <main>
+      <!-- fix -->
         <div class="food-details">
-            <!-- <img src="{% static 'food-image.jpg' %}" alt="Food Image"> -->
+            <img src="{% static 'food-image.jpg' %}" alt="Food Image">
             <img src="food2.jpg" alt="Food Image">
             <div class="food-info">
-            <h2>Food Name</h2>
-            <p>Description information about the food.</p>
+              <h2>{{detail.prdlstNm}}</h2>
+              <p>세부 재료 : {{detail.rawmtrl}}</p>
+              <p>알러지 성분 : {{detail.allergy}}</p>
             <form action="https://search.shopping.naver.com/search/all" method="GET">
                 <input type="hidden" name="query" value="{{ food.name }}">
                 <button type="submit"> 구매하기 </button>
