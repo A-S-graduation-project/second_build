@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'searchapp',
-    'board'
+    'board',
+    'signapp',
 ]
 
 MIDDLEWARE = [
