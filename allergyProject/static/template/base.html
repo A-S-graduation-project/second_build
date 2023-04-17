@@ -40,7 +40,11 @@
         <div class="menu">
           <ul>
             <li><a href="{% url 'board' %}">Board</a></li>
-            <li><a href="{% static 'food.jpgcontact' %}">Login</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'signapp:login' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'signapp:login' %}">Login</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>

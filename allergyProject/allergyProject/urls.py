@@ -18,6 +18,7 @@ from django.urls import path, include
 from mainapp import views as mainviews
 from searchapp import views as searchviews
 from board import views as boardviews
+from signapp import views as signviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,6 @@ urlpatterns = [
     path('about/', mainviews.about, name='about'),
     # path('search/', searchviews.searchResult, name='search'),
     path('', include('searchapp.urls')),
-    path('board/', boardviews.board, name='board')
+    path('board/', boardviews.board, name='board'),
+    path('', include('signapp.urls'))
 ]
