@@ -10,17 +10,17 @@
           <h2>{{detail.prdlstNm}}</h2>
           <p>세부 재료 : {{detail.rawmtrl}}</p>
           <p>알러지 성분 : {{detail.allergy}}</p>
-        <form action="https://search.shopping.naver.com/search/all" method="GET">
-            <input type="hidden" name="query" value="{{ detail.prdlstNm }}">
-            <button type="submit"> 구매하기 </button>
-        </form>
+          <form action="https://search.shopping.naver.com/search/all" method="GET">
+              <input type="hidden" name="query" value="{{ detail.prdlstNm }}">
+              <button type="submit"> 구매하기 </button>
+          </form>
         </div>
     </div>
 </main>
 <div id="recommend"></div>
 <div class="picture-grid">
   {% for collarbor in collarbors %}
-    <div class="product">
+    <div class="picture">
       <a href="{% url 'searchapp:Detail' %}?pk={{ collarbor.prdlstReportNo }}">
         <img src="{{ collarbor.image }}" alt="{{ collarbor.prdlstNm }}">
         <p>{{ collarbor.prdlstNm }}</p>
@@ -33,7 +33,7 @@
 
 <div class="picture-grid">
   {% for similarity in similarities %}
-    <div class="product">
+    <div class="picture">
       <a href="{% url 'searchapp:Detail' %}?pk={{ similarity.prdlstReportNo }}">
         <img src="{{ similarity.image }}" alt="{{ similarity.prdlstNm }}">
         <p>{{ similarity.prdlstNm }}</p>

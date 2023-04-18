@@ -1,351 +1,491 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: auto;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .logo a {
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .search {
-    flex-grow: 1;
-    margin: 0 20px;
-    
-  }
-  
-  .search form {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  /* Dropdown button */
-  .search .dropbtn{
-    background-color: #f5f5f5;
-    color: #333;
-    width: 58px;
-    height: 38px;
-    font-size: 0.5em;
-    border: none;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
 
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none;
-    font-size: 0.8em;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
 
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #333;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: block;
-  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
+.logo a {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content, .rangedropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  /* Hash tag style */
-  .hashtag {
-    background-color: #f1f1f1;
-    color: #333;
-    padding: 4px 8px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-right: 8px;
-    cursor: pointer;
-  }
-
-  .hashtag:hover {
-    background-color: #ddd;
-  }
-
-  .search button {
-    padding: 8px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+.search {
+  flex-grow: 1;
+  margin: 0 20px;
   
-  @media screen and (max-width: 768px) {
-    input[type="text"] {
-      width: 100%;
-    }
-  }
+}
 
-  .menu ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  .menu li {
-    margin-right: 20px;
-  }
-  
-  .menu a {
-    color: #333;
-    font-size: 16px;
-    text-decoration: none;
-  }
-  
-  .menu a:hover {
-    text-decoration: underline;
-  }
-  
-  main {
-    display: flex;
-    background-color: #f7f7f7;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .slideshow-container {
-    position: relative;
+.search form {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Dropdown button */
+.search .dropbtn{
+  background-color: #f5f5f5;
+  color: #333;
+  width: 58px;
+  height: 38px;
+  font-size: 0.5em;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  font-size: 0.8em;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #333;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content, .rangedropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hash tag style */
+.hashtag {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.hashtag:hover {
+  background-color: #ddd;
+}
+
+.search button {
+  padding: 8px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  input[type="text"] {
     width: 100%;
-    height: 500px;
-    text-align: center;
-    overflow: hidden;
   }
-  
-  .slide {
-    position: relative;
-    float: left;
-    box-sizing: border-box;
-    width: 25%;
-    padding: 10px;
-    text-align: center;
-  }
+}
 
-  .slide.active{
-    opacity: 1;
-    display:block;
-  }
+.menu ul {
+  list-style: none;
+  display: flex;
+}
 
-  .slide.hidden{
-    display: none;
-  }
+.menu li {
+  margin-right: 20px;
+}
 
-  .slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block; /* display as inline block to center vertically */
-  }
+.menu a {
+  color: #333;
+  font-size: 16px;
+  text-decoration: none;
+}
 
-  .slide img:hover{
-    filter: brightness(50%);
-  }
+.menu a:hover {
+  text-decoration: underline;
+}
 
-  .slide .text {
-    position: absolute;
-    color:#fff;
-    left: 50%;
-    top: 50%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  }
+main {
+  display: flex;
+  background-color: #f7f7f7;
+  align-items: center;
+  justify-content: center;
+}
 
-  a:hover .text{
-    opacity: 1;
-  }
+.mypage{
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 15%;
+}
 
-  .prev, .next {
-    position: absolute;
-    top: 60%;
-    transform: translateY(-100%);
-    width: auto;
-    padding: 16px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    transition: 0.6s ease;
-    cursor: pointer;
-    z-index: 1;
-  }
-  
-  .prev {
-    left: 0;
-  }
-  
-  .next {
-    right: 0;
-  }
-  
-  .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  
-  footer {
-    background-color: #888888;
-    color: #fff;
-  }
-  
-  .color-blocks {
-    display: flex;
-  }
+.mypage section > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
 
-  .picture-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-flow: dense;
-    grid-gap: 20px;
-    padding: 1%;
-  }
-  
-  .picture {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .picture img {
-    max-width: 100%;
-    height: auto;
-  }
+.mypage section button{
+  float: right;
+  clear: both;
+}
 
-  .food-details {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    height: 500px;
-  }
-  
-  .food-details img {
-    max-width: 100%;
-    height: 80%;
-    margin-right: 20px;
-  }
+.mypage aside {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #eee;
+}
 
-  .food-info {
-    margin-left: 20px;
-  }
-  
-  .food-info h2 {
-    font-size: 24px;
-    margin: 0;
-  }
-  
-  .food-info p {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  .food-info button {
-    background-color: #F9A826;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .food-info button:hover {
-    background-color: #F27D23;
-  }
+section{
+  border-bottom: solid 3px #fff;
+}
 
-  .recommend{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-  }
+section input {
+  width: 100%;
+  padding: 4px;
+  font-size: 16px;
+}
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-flow: dense;
-    grid-gap: 20px;
-    width: 100%;
-    padding: 1%;
-    text-align: center;
-  }
-  
-  .post {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .post img {
-    display: block;
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
-  }
-  
-  .post h2 {
-    margin: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  .post a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .recipe {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-  }
-  .recipe h2 {
-    margin-top: 0;
-    font-size: 24px;
-    color: #333;
-  }
-  .recipe p {
-    margin: 0;
-    font-size: 16px;
-    color: #666;
-  }
-  
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+  width: 25%;
+  padding: 10px;
+  text-align: center;
+}
+
+.slide.active{
+  opacity: 1;
+  display:block;
+}
+
+.slide.hidden{
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block; /* display as inline block to center vertically */
+}
+
+.slide img:hover{
+  filter: brightness(50%);
+}
+
+.slide .text {
+  position: absolute;
+  color:#fff;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+a:hover .text{
+  opacity: 1;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-100%);
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.6s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+footer {
+  background-color: #888888;
+  color: #fff;
+}
+
+.color-blocks {
+  display: flex;
+}
+
+.picture-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 20px;
+  padding: 1%;
+}
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+.food-details {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  height: 500px;
+}
+
+.food-details img {
+  max-width: 100%;
+  height: 80%;
+  margin-right: 20px;
+}
+
+.food-info {
+  margin-left: 20px;
+}
+
+.food-info h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.food-info p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.food-info button {
+  background-color: #F9A826;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.food-info button:hover {
+  background-color: #F27D23;
+}
+
+.recommend{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 20px;
+  width: 100%;
+  padding: 1%;
+  text-align: center;
+}
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.post img {
+  display: block;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+
+.post h2 {
+  margin: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.post a {
+  text-decoration: none;
+  color: #333;
+}
+
+.recipe {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+.recipe h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #333;
+}
+.recipe p {
+  margin: 0;
+  font-size: 16px;
+  color: #666;
+}
+.signup-form {
+  max-width: 300px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.signup-form h1 {
+  text-align: center;
+  color: #333;
+}
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form input[type="tel"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 0;
+}
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="password"]:focus,
+.signup-form input[type="tel"]:focus {
+  background-color: #e1e1e1;
+}
+.signup-form input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.signup-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.signup-form p {
+  text-align: center;
+  margin-top: 16px;
+  color: #777;
+}
+.signup-form .error-msg {
+  color: #f00;
+  margin-top: 4px;
+}
+.login-form {
+  max-width: 300px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.login-form h1 {
+  text-align: center;
+  color: #333;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 0;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  background-color: #e1e1e1;
+}
+.login-form input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+.login-form p {
+  text-align: center;
+  margin-top: 16px;
+  color: #777;
+}

@@ -2,10 +2,10 @@
 {% load static %}
 {% block content %}
 <h1>Search results for "{{ query }}"</h1>
-<main>
+<main style="background-color: #fff;">
   <div class="picture-grid">
     {% for product in products %}
-      <div class="product">
+      <div class="picture">
         <a href="{% url 'searchapp:Detail' %}?pk={{ product.prdlstReportNo }}">
           <img src="{{ product.image }}" alt="{{ product.prdlstNm }}">
           <p>{{ product.prdlstNm }}</p>

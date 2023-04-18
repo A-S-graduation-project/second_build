@@ -15,118 +15,118 @@
     </aside>
     <div>필수 회원 정보</div>
     <section>
+      <div>
         <div>
           <div>
+            <h3>이름</h3>
+          </div>
+          <div>
+            <!-- {% if editing %}
             <div>
-              <h3>이름</h3>
+              <input type="text" value="{{ username }}" />
             </div>
             <div>
-              <!-- {% if editing %}
-              <div>
-                <input type="text" value="{{ username }}" />
-              </div>
-              <div>
-                <button class="confirm">확인</button>
-                <button class="cancel">취소</button>
-              </div>
-              {% else %} -->
-              <div>{{ username }}</div>
-              <div>
-                <button class="edit">수정</button>
-              </div>
-              <!-- {% endif %} -->
+              <button class="confirm">확인</button>
+              <button class="cancel">취소</button>
             </div>
-          </div> 
-        </div>
-      </section>
-      <section>
+            {% else %} -->
+            <div>{{ username }}</div>
+            <div>
+              <button class="edit">수정</button>
+            </div>
+            <!-- {% endif %} -->
+          </div>
+        </div> 
+      </div>
+    </section>
+    <section>
+      <div>
         <div>
           <div>
+            <h3>생년월일</h3>
+          </div>
+          <div>
+            <!-- {% if editing %}
             <div>
-              <h3>생년월일</h3>
+              <input type="text" value="{{ username }}" />
             </div>
             <div>
-              <!-- {% if editing %}
-              <div>
-                <input type="text" value="{{ username }}" />
-              </div>
-              <div>
-                <button class="confirm">확인</button>
-                <button class="cancel">취소</button>
-              </div>
-              {% else %} -->
-              <div>{{ userbirth }}</div>
-              <div>
-                <button class="edit">수정</button>
-              </div>
-              <!-- {% endif %} -->
+              <button class="confirm">확인</button>
+              <button class="cancel">취소</button>
             </div>
-          </div> 
-        </div>
-      </section>
-      <section>
+            {% else %} -->
+            <div>{{ userbirth }}</div>
+            <div>
+              <button class="edit">수정</button>
+            </div>
+            <!-- {% endif %} -->
+          </div>
+        </div> 
+      </div>
+    </section>
+    <section>
+      <div>
         <div>
           <div>
+            <h3>이메일</h3>
+          </div>
+          <div>
+            <!-- {% if editing %}
             <div>
-              <h3>이메일</h3>
+              <input type="text" value="{{ username }}" />
             </div>
             <div>
-              <!-- {% if editing %}
-              <div>
-                <input type="text" value="{{ username }}" />
-              </div>
-              <div>
-                <button class="confirm">확인</button>
-                <button class="cancel">취소</button>
-              </div>
-              {% else %} -->
-              <div>{{ useremail }}</div>
-              <div>
-                <button class="edit">수정</button>
-              </div>
-              <!-- {% endif %} -->
+              <button class="confirm">확인</button>
+              <button class="cancel">취소</button>
             </div>
-          </div> 
-        </div>
-      </section>
-      <section>
+            {% else %} -->
+            <div>{{ useremail }}</div>
+            <div>
+              <button class="edit">수정</button>
+            </div>
+            <!-- {% endif %} -->
+          </div>
+        </div> 
+      </div>
+    </section>
+    <section>
+      <div>
         <div>
           <div>
+            <h3>알러지 정보</h3>
+          </div>
+          <div>
+            <!-- {% if editing %}
+            <table>
+              <tr>
+                <th>Allegies:</th>
+                <td>
+                  {% for allergy in form.allergies %}
+                    <div>
+                      <input type="checkbox" name="{{ allergy.name }}" id="id_{{ allergy.name }}" {% if allergy.id in user_profile.allergies.all %}checked{% endif %}>
+                      <label for="id_{{ allergy.name }}">{{ allergy.name }}</label>
+                    </div>
+                  {% endfor %}
+                </td>
+              </tr>
+            </table>
             <div>
-              <h3>알러지 정보</h3>
+              <input type="text" value="{{ username }}" />
             </div>
             <div>
-              <!-- {% if editing %}
-              <table>
-                <tr>
-                  <th>Allegies:</th>
-                  <td>
-                    {% for allergy in form.allergies %}
-                      <div>
-                        <input type="checkbox" name="{{ allergy.name }}" id="id_{{ allergy.name }}" {% if allergy.id in user_profile.allergies.all %}checked{% endif %}>
-                        <label for="id_{{ allergy.name }}">{{ allergy.name }}</label>
-                      </div>
-                    {% endfor %}
-                  </td>
-                </tr>
-              </table>
-              <div>
-                <input type="text" value="{{ username }}" />
-              </div>
-              <div>
-                <button class="confirm">확인</button>
-                <button class="cancel">취소</button>
-              </div>
-              {% else %} -->
-              <div>{{ userallergy }}</div>
-              <div>
-                <button class="edit">수정</button>
-              </div>
-              <!-- {% endif %} -->
+              <button class="confirm">확인</button>
+              <button class="cancel">취소</button>
             </div>
-          </div> 
-        </div>
-      </section>
+            {% else %} -->
+            <div>{{ userallergy }}</div>
+            <div>
+              <button class="edit">수정</button>
+            </div>
+            <!-- {% endif %} -->
+          </div>
+        </div> 
+      </div>
+    </section>
     <!-- <ul>    
         <li>이름 :</li>
         <li>이메일</li>
