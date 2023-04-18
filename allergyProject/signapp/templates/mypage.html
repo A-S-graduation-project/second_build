@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div style="margin:1% 15%">
+    <h1>나의 정보</h1>
+        <div>
+            {{ username }}님께서 가입하신 회원 정보입니다.
+        </div>
+</div>
+<main class="mypage">
+    <aside id="sidebar">
+        <li>내정보</li>
+        <li>게시판</li>
+        <li>즐겨찾기</li>
+    </aside>
+    <div>필수 회원 정보</div>
+    <section>
+        <div>
+          <div>
+            <div>
+              <h3>이름</h3>
+            </div>
+            <div>
+              <!-- {% if editing %}
+              <div>
+                <input type="text" value="{{ username }}" />
+              </div>
+              <div>
+                <button class="confirm">확인</button>
+                <button class="cancel">취소</button>
+              </div>
+              {% else %} -->
+              <div>{{ username }}</div>
+              <div>
+                <button class="edit">수정</button>
+              </div>
+              <!-- {% endif %} -->
+            </div>
+          </div> 
+        </div>
+      </section>
+      <section>
+        <div>
+          <div>
+            <div>
+              <h3>생년월일</h3>
+            </div>
+            <div>
+              <!-- {% if editing %}
+              <div>
+                <input type="text" value="{{ username }}" />
+              </div>
+              <div>
+                <button class="confirm">확인</button>
+                <button class="cancel">취소</button>
+              </div>
+              {% else %} -->
+              <div>{{ userbirth }}</div>
+              <div>
+                <button class="edit">수정</button>
+              </div>
+              <!-- {% endif %} -->
+            </div>
+          </div> 
+        </div>
+      </section>
+      <section>
+        <div>
+          <div>
+            <div>
+              <h3>이메일</h3>
+            </div>
+            <div>
+              <!-- {% if editing %}
+              <div>
+                <input type="text" value="{{ username }}" />
+              </div>
+              <div>
+                <button class="confirm">확인</button>
+                <button class="cancel">취소</button>
+              </div>
+              {% else %} -->
+              <div>{{ useremail }}</div>
+              <div>
+                <button class="edit">수정</button>
+              </div>
+              <!-- {% endif %} -->
+            </div>
+          </div> 
+        </div>
+      </section>
+      <section>
+        <div>
+          <div>
+            <div>
+              <h3>알러지 정보</h3>
+            </div>
+            <div>
+              <!-- {% if editing %}
+              <table>
+                <tr>
+                  <th>Allegies:</th>
+                  <td>
+                    {% for allergy in form.allergies %}
+                      <div>
+                        <input type="checkbox" name="{{ allergy.name }}" id="id_{{ allergy.name }}" {% if allergy.id in user_profile.allergies.all %}checked{% endif %}>
+                        <label for="id_{{ allergy.name }}">{{ allergy.name }}</label>
+                      </div>
+                    {% endfor %}
+                  </td>
+                </tr>
+              </table>
+              <div>
+                <input type="text" value="{{ username }}" />
+              </div>
+              <div>
+                <button class="confirm">확인</button>
+                <button class="cancel">취소</button>
+              </div>
+              {% else %} -->
+              <div>{{ userallergy }}</div>
+              <div>
+                <button class="edit">수정</button>
+              </div>
+              <!-- {% endif %} -->
+            </div>
+          </div> 
+        </div>
+      </section>
+    <!-- <ul>    
+        <li>이름 :</li>
+        <li>이메일</li>
+        <li>전화번호</li>
+        <li>생년월일</li>
+        <li>알러지</li>
+        <ul>
+            <li>난류</li>
+            <li>갑각류</li>
+        </ul>            
+    </ul> -->
+    <!-- <form action="">
+        <div>
+            <label for="username">이름 : </label>
+            <input type="text" placeholder="" id="username" name="username">
+        </div>
+        <div>
+            <label for="userId">아이디 : </label>
+            <input type="text" placeholder="" id="userId" name="userId">
+        </div>
+        <div>
+            <label for="userpwd">비밀번호 : </label>
+            <input type="password" placeholder="" id="userpwd" name="userpwd">
+        </div>
+    </form> -->
+</main> 
+{% endblock %}
