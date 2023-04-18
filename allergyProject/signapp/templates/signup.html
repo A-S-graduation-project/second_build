@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="signup-form">
+<h1>회원 가입</h1>
+<form onsubmit="return validateForm()">
+    <input type="text" placeholder="사용자명" name="username" id="username" required>
+    <input type="email" placeholder="이메일" name="email" id="email" required>
+    <input type="tel" placeholder="전화번호" name="phone" id="phone" required>
+    <input type="password" placeholder="비밀번호" name="password" id="password" required>
+    <input type="password" placeholder="비밀번호 확인" name="password-confirm" id="password-confirm" required>
+    <span id="password-confirm-error" class="error-msg"></span>
+    <input type="submit" value="회원 가입">
+</form>
+<p>이미 회원이신가요? <a href="{% url 'signapp:login' %}">로그인</a></p>
+</div>
+<script>
+function validateForm() {
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var password = document.getElementById('password').value;
+    var passwordConfirm = document.getElementById('password-confirm').value;
+    var passwordConfirmError = document.getElementById('password-confirm-error');
+    
+    // 전화번호 형식 검사 정규식
+    var phoneRegex = /^\d{3}-\d{3,4}-\d{4}$/;
+
+    // 비밀번호 확인 일치 여부 확인
+    if (password !== passwordConfirm) {
+    passwordConfirmError.textContent = "비밀번호가 일치하지 않습니다.";
+    return false;
+    } else {
+    passwordConfirmError.textContent = "";
+    }
+
+    // 전화번호 형식 검사
+    if (!phoneRegex.test(phone)) {
+    document.getElementById('phone').setCustomValidity("전화번호 형식이 올바르지 않습니다. (xxx-xxxx-xxxx)");
+    return false;
+    } else {
+    document.getElementById('phone').setCustomValidity("");
+    }
+
+    // 여기에 나머지 유효성 검사 로직을 추가할 수 있습니다.
+    
+    // 유효성 검사 통과 시 서버에 데이터 전송 등 회원가입 처리를 진행합니다.
+    alert("회원 가입이 완료되었습니다.");
+    return true;
+}
+</script>
+{% endblock %}
