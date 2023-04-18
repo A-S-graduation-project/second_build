@@ -42,6 +42,7 @@
           <ul>
             <li><a href="{% url 'board' %}">Board</a></li>
             {% if user.is_authenticated %}
+            <li><a href="{% url 'signapp:mypage' %}">{{ username }}</a></li>
             <li><a href="{% url 'signapp:login' %}">Logout</a></li>
             {% else %}
             <li><a href="{% url 'signapp:login' %}">Login</a></li>
