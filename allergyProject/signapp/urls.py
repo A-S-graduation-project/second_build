@@ -4,7 +4,7 @@ from . import views as signviews
 app_name = 'signapp'
 
 urlpatterns = [
-    path('login/', signviews.Mypage, name='login'),
-    path('mypage/', signviews.Login, name='mypage'),
+    path('login/', signviews.Login, name='login'),
+    path('mypage/', signviews.Mypage, name='mypage'),
     # path('/', signviews.Logout , name='logout'),
 ]

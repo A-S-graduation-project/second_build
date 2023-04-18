@@ -26,6 +26,6 @@ urlpatterns = [
     path('about/', mainviews.about, name='about'),
     # path('search/', searchviews.searchResult, name='search'),
     path('', include('searchapp.urls')),
-    path('board/', boardviews.board, name='board'),
+    path('', include('board.urls')),
     path('', include('signapp.urls'))
 ]
