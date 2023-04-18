@@ -332,3 +332,20 @@ body {
     color: #333;
   }
   
+  .recipe {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  .recipe h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  .recipe p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+  }
+  

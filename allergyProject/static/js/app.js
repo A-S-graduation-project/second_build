@@ -222,3 +222,23 @@ function renderPaginationButtons(currentPage, totalPages) {
   pagination.appendChild(nextButton);
   }
 }
+
+const editButton = document.querySelector('.edit-button');
+const username = document.querySelector('.username');
+
+editButton.addEventListener('click', () => {
+  // edit mode로 변경
+  username.innerHTML = `<input type="text" value="${username.innerText}">`;
+  editButton.innerHTML = '확인';
+  
+  const confirmButton = document.createElement('button');
+  confirmButton.innerHTML = '취소';
+  confirmButton.addEventListener('click', () => {
+    // view mode로 변경
+    username.innerHTML = `${username.firstChild.value}`;
+    editButton.innerHTML = '수정';
+    confirmButton.remove();
+  });
+  
+  editButton.insertAdjacentElement('afterend', confirmButton);
+});
