@@ -136,10 +136,12 @@ nav {
 }
 
 main {
+  position: relative;
   display: flex;
   background-color: #f7f7f7;
   align-items: center;
   justify-content: center;
+  padding: 50px;
 }
 
 .mypage{
@@ -284,11 +286,23 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
+  box-shadow: 2px 2px 2px #eee;
+  border-radius: 5%;
+  
 }
 
 .picture img {
   max-width: 100%;
   height: auto;
+}
+
+.picture img:hover{
+  filter: brightness(50%);
+}
+
+.picture p {
+  text-align: center;
+  color: black;
 }
 
 .food-details {
@@ -318,7 +332,7 @@ footer {
   margin: 10px 0;
 }
 
-.food-info button {
+.food-info .buy {
   background-color: #F9A826;
   color: #fff;
   border: none;
@@ -327,8 +341,55 @@ footer {
   cursor: pointer;
 }
 
-.food-info button:hover {
+.food-info .buy:hover {
   background-color: #F27D23;
+}
+
+.like-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.like-button{
+  background-color: #ffffff;
+}
+
+.like-button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+}
+
+.like-button:hover {
+  background-color: #f7f7f7;
+}
+
+.like-button:before {
+  content: "\2665"; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-size: 24px;
+  color: rgb(255, 108, 108);
+}
+
+.like-button:hover:before {
+  color: red;
+}
+
+.board-like-button-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  bottom: 0;
 }
 
 .recommend{
